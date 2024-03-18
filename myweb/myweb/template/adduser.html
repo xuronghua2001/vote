@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="cn-zh">
+<head>
+    <meta charset="UTF-8">
+    <h1>添加用户信息</h1>
+    <span><a href="/myapp/">1.返回首页</a></span>|<span><a href="/myapp/user">2.浏览用户信息</a></span>|<span><a
+        href="/myapp/user/add_user">3.添加用户信息</a></span>
+    <title>添加用户信息</title>
+    <table border="1">
+        <thead>
+        <tr>
+            <th>ID号</th>
+            <th>姓名</th>
+            <th>年龄</th>
+            <th>电话</th>
+            <th>添加时间</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <form action="{% url 'add' %}" method="post">
+                 {% csrf_token %}
+                <td><label for="id">id:</label>
+                    <input type="text" id="id" name="id" required minlength="1" maxlength="8" size="10"/></td>
+                <td><label for="name">name:</label>
+                    <input type="text" id="name" name="name" required minlength="2" maxlength="8" size="10"/></td>
+                <td><label for="age">age:</label>
+                    <input type="text" id="age" name="age" required minlength="2" maxlength="8" size="10"/></td>
+                <td><label for="phone">phone:</label>
+                    <input type="text" id="phone" name="phone" required minlength="2" maxlength="16" size="10"/></td>
+                <td>{{ data }}</td>
+                <td>
+                    <input type="submit" value="提交">
+                </td>
+            </form>
+        </tr>
+        </tbody>
+    </table>
+
+</head>
+<body>
+
+</body>
+</html>
